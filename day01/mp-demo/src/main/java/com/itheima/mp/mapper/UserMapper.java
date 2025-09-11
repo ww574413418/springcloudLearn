@@ -1,19 +1,21 @@
 package com.itheima.mp.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.itheima.mp.domain.po.User;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
-public interface UserMapper{
+public interface UserMapper extends BaseMapper<User> {
 
-    void saveUser(User user);
+    // @param("ew") = @Param(Constants.WRAPPER)
+    @Update("update user set balance = balance - #{amount} ${ew.customSqlSegment}")
+    void updateBalanceByIds(@Param(Constants.WRAPPER) QueryWrapper<User> queryWrapper, @Param("amount") int amount);
 
-    void deleteUser(Long id);
-
-    void updateUser(User user);
-
-    User queryUserById(@Param("id") Long id);
-
-    List<User> queryUserByIds(@Param("ids") List<Long> ids);
+    @Update("update user set balance = balance - #{money} where id = #{id}")
+    void deductionBalanceById(@Param("id") Long id, @Param("money") int money);
 }
