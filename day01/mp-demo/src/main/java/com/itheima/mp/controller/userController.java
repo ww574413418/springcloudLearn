@@ -1,8 +1,10 @@
 package com.itheima.mp.controller;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.itheima.mp.domain.dto.PageDTO;
 import com.itheima.mp.domain.dto.UserFormDTO;
 import com.itheima.mp.domain.po.User;
+import com.itheima.mp.domain.query.UserQuery;
 import com.itheima.mp.domain.vo.UserVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
@@ -11,6 +13,7 @@ import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import com.itheima.mp.service.userService;
 import java.util.ArrayList;
@@ -77,5 +80,19 @@ public class userController {
     void decucationBalanceById(@ApiParam("用户id") @PathVariable Long id,
                                @ApiParam("钱") @PathVariable int money){
         userService.deductionBalanceById(id,money);
+    }
+
+    //根据复查条件查询
+    @ApiOperation("根据复查条件查询")
+    @PutMapping("/list")
+    void queryUserByConditions(UserQuery userQuery){
+        userService.queryUsers(userQuery.getName(),userQuery.getStatus(),
+                userQuery.getMaxBalance(),userQuery.getMinBalance());
+    }
+
+    @ApiOperation("查询用户并分页")
+    @GetMapping("/user/page")
+    public PageDTO<UserVO> queryUserPage(UserQuery userQuery){
+        return userService.queryUsersPage(userQuery);
     }
 }

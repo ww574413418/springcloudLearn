@@ -14,6 +14,9 @@ mybatis-plus:
   type-aliases-package: com.itheima.mp.domain.po
   # Mapper.xmL文件地址, 默认值
   mapper-locations: "classpath*：/mapper/**/*.xml"
+  # 配置枚举处理器
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
 
 knife4j:
   enable: true
