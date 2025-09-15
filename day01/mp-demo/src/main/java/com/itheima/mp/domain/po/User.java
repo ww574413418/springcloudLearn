@@ -1,5 +1,6 @@
 package com.itheima.mp.domain.po;
 
+import com.itheima.mp.emus.userStatus;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -35,7 +36,7 @@ public class User {
     /**
      * 使用状态（1正常 2冻结）
      */
-    private Integer status;
+    private userStatus status;
 
     /**
      * 账户余额
