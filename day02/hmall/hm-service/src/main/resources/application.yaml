@@ -1,10 +1,11 @@
 server:
   port: 8080
+  address: 0.0.0.0
 spring:
   application:
     name: hm-service
   profiles:
-    active: dev
+    active: local
   datasource:
     url: jdbc:mysql://${hm.db.host}:3306/hmall?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
