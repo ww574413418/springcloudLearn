@@ -3,6 +3,7 @@ server:
   address: 0.0.0.0
 spring:
   application:
+    # 服务名
     name: item-service
   profiles:
     active: local
@@ -11,6 +12,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: ${hm.db.pw}
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        server-addr: localhost:8848
+  config:
+    import: nacos:springclouddemo2023x.properties?group=DEFAULT_GROUP
 mybatis-plus:
   configuration:
     default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler

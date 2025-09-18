@@ -1,0 +1,3 @@
+# 忽略所有模块的 target 目录
+target/
+*/target/
