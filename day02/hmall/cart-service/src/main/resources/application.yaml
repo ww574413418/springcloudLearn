@@ -16,6 +16,8 @@ spring:
       server-addr: localhost:8848
       discovery:
         server-addr: localhost:8848
+  config:
+    import: nacos:springclouddemo2023x.properties?group=DEFAULT_GROUP
 
 mybatis-plus:
   configuration:
