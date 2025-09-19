@@ -1,11 +1,15 @@
-# 忽略所有模块的 target 目录
-target/
-*/target/
+### Example user template template
+### Example user template
 
-
-# 忽略 IDE 配置文件
+# IntelliJ project files
+.idea
 *.iml
-.idea/
+out
+gen
+target
+*.class
 
-logs/
-
+*.log
+.settings
+.project
+logs
