@@ -1,8 +1,9 @@
-package com.hmall.trade.domain.dto;
+package com.hmall.api.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
 import java.util.List;
 
 @Data
