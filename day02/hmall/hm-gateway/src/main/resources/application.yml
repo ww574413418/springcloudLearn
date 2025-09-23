@@ -1,36 +1,7 @@
 server:
   port: 8080
-spring:
-  application:
-    name: gateway
-  cloud:
-    nacos:
-      server-addr: localhost:8848
-    gateway:
-      routes:
-        - id: item-service
-          uri: lb://item-service #lb:负载均衡
-          predicates:
-            - Path=/items/**,/search/** #配置了2个controller
-        - id: user-service
-          uri: lb://user-service
-          predicates:
-            - Path=/users/**,/addresses/**
-        - id: cart-service
-          uri: lb://cart-service
-          predicates:
-            - Path=/carts/**
-        - id: pay-service
-          uri: lb://pay-service
-          predicates:
-            - Path=/pay-orders/**
-        - id: trade-service
-          uri: lb://trade-service
-          predicates:
-            - Path=/orders/**
 
-  config:
-    import: nacos:springclouddemo2023x.properties?group=DEFAULT_GROUP
+
 
 hm:
   jwt:

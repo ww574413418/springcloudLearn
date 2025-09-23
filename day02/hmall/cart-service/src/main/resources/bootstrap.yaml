@@ -1,0 +1,20 @@
+
+spring:
+  application:
+    name: cart-service
+  profiles:
+    active: local
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        server-addr: localhost:8848
+      config:
+        file-extension: yaml
+        shared-configs:
+          - data-id: shared-jdbc.yml
+          - data-id: shared-log.yml
+          - data-id: shared-swagge.yml
+  config:
+    import: nacos:springclouddemo2023x.properties?group=DEFAULT_GROUP
+
