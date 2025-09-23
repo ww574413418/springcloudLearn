@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: getway
+  profiles:
+    active: local
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        server-addr: localhost:8848
+      config:
+        file-extension: yaml
+        shared-configs:
+          - data-id: shared-log.yml
+  config:
+    import: nacos:springclouddemo2023x.properties?group=DEFAULT_GROUP
+
