@@ -1,13 +1,11 @@
 package com.hmall.api.client.fallback;
 
-
 import com.hmall.api.client.itemClient;
 import com.hmall.api.dto.ItemDTO;
 import com.hmall.api.dto.OrderDetailDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.context.annotation.Bean;
-
 import java.util.Collection;
 import java.util.List;
 
